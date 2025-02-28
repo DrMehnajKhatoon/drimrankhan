@@ -3,56 +3,869 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Imran Khan Jiragal - Professional Portfolio</title>
+    <title>Dr. Imrankhan Jiragal - Agricultural Extension Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a4c77;
+            --secondary-blue: #2a6ca8;
+            --light-blue: #e6f2ff;
+            --accent-blue: #0f3a5f;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
+            --bg-light: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9fc;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--text-light);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: var(--light-blue);
+            border: 4px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-info h2 {
+            font-weight: normal;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Main Container Styles */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 2rem auto;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        
+        /* Aside Styles */
+        aside {
+            flex: 0 0 250px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
+            height: max-content;
+            transition: all 0.3s ease;
+        }
+        
+        .index-title {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            transform: translateX(5px);
+        }
+        
+        /* Main Content Styles */
+        main {
+            flex: 1;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 2rem;
+        }
+        
+        .section-title {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-item h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .content-list {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-item, .experience-item, .publication-item {
+            padding: 1rem;
+            border-left: 3px solid var(--secondary-blue);
+            background-color: var(--light-blue);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .education-item:hover, .experience-item:hover, .publication-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            padding: 0.5rem 1rem;
+            background-color: var(--light-blue);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid var(--secondary-blue);
+        }
+        
+        /* Publications */
+        .publication-item h4 {
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-year {
+            font-weight: bold;
+            color: var(--secondary-blue);
+        }
+        
+        .publication-doi {
+            font-style: italic;
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .references {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .reference-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background-color: var(--primary-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            aside {
+                flex: 0 0 auto;
+                width: 100%;
+                position: static;
+            }
+            
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            aside {
+                display: none;
+                transition: all 0.3s ease;
+            }
+            
+            aside.active {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-info {
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            .reference-item {
+                min-width: 100%;
+            }
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        /* Print styles */
+        @media print {
+            aside, .back-to-top, .mobile-menu-toggle {
+                display: none;
+            }
+            
+            .container {
+                display: block;
+            }
+            
+            main {
+                box-shadow: none;
+            }
+            
+            header, footer {
+                background: none;
+                color: black;
+                box-shadow: none;
+            }
+            
+            .section-title {
+                color: black;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-blue-600 text-white py-6 text-center">
-        <h1 class="text-3xl font-bold">Dr. Imran Khan Jiragal</h1>
-        <p class="text-lg">M.Sc., Ph.D. in Agricultural Extension</p>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="./profile/i.jpg" alt="Dr. Imrankhan Jiragal" />
+                </div>
+                <div class="profile-info">
+                    <h1>Dr. Imrankhan Jiragal</h1>
+                    <h2>M.Sc., Ph.D in Agricultural Extension</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Judicial Layout, Yelahanka, Bangalore, India-560065</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>
+                                <a href="tel:+918861007758" style="color: inherit; text-decoration: none;">+91-8861007758</a>, 
+                                <a href="tel:+919480438091" style="color: inherit; text-decoration: none;">+91-9480438091</a>
+                            </span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span><a href="mailto:imrankhanjiragal@gmail.com" style="color: inherit; text-decoration: none;">imrankhanjiragal@gmail.com</a></span>
+                            <span><a href="mailto:kwddmeldc@gmail.com" style="color: inherit; text-decoration: none;">kwddmeldc@gmail.com</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-
-    <main class="max-w-5xl mx-auto p-6">
-        <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-2xl font-bold mb-2">Summary</h2>
-            <p class="text-gray-700">Dedicated and accomplished social science researcher with expertise in qualitative and quantitative analysis, policy formulation, and advanced research tools.</p>
-        </section>
-
-        <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-2xl font-bold mb-2">Education</h2>
-            <ul class="list-disc pl-6 text-gray-700">
-                <li>Ph.D. in Agricultural Extension - University of Agricultural Sciences, GKVK, Bengaluru (2023)</li>
-                <li>M.Sc. in Agricultural Extension - University of Agricultural Sciences, GKVK, Bengaluru (2018)</li>
-                <li>B.Sc. in Agriculture - College of Sericulture, UAS, GKVK, Bengaluru (2016)</li>
+    
+    <div class="container">
+        <aside id="sideNav">
+            <h2 class="index-title">Portfolio Index</h2>
+            <ul class="nav-links">
+                <li><a href="#summary">Professional Summary</a></li>
+                <li><a href="#education">Educational Qualification</a></li>
+                <li><a href="#experience">Professional Experience</a></li>
+                <li><a href="#skills">Technical Skills</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#book-chapters">Book Chapters</a></li>
+                <li><a href="#research">Research Abstracts</a></li>
+                <li><a href="#awards">Awards & Honors</a></li>
+                <li><a href="#conferences">Conferences & Training</a></li>
+                <li><a href="#sports">Sports & NCC</a></li>
             </ul>
-        </section>
-
-        <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-2xl font-bold mb-2">Experience</h2>
-            <ul class="list-disc pl-6 text-gray-700">
-                <li>Monitoring, Evaluation, Learning, and Documentation (MELD) Coordinator – Watershed Development Department, Karnataka</li>
-                <li>Research Associate – ICAR-NIVEDI, Bangalore</li>
-                <li>Young Professional II – AICRP on Women in Agriculture</li>
-            </ul>
-        </section>
-
-        <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-2xl font-bold mb-2">Skills</h2>
-            <ul class="list-disc pl-6 text-gray-700">
-                <li>Advanced statistical software: QGIS, IBM-SPSS, NVIVO, Power BI</li>
-                <li>Data visualization and analysis tools</li>
-                <li>Stakeholder mapping and research methodologies</li>
-            </ul>
-        </section>
-
-        <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-2xl font-bold mb-2">Publications</h2>
-            <p class="text-gray-700">Published multiple research papers in international journals on agriculture and rural development.</p>
-        </section>
-    </main>
-
-    <footer class="bg-blue-600 text-white py-4 text-center">
-        <p>Contact: imrankhanjiragal@gmail.com | Phone: +91-8861007758</p>
+        </aside>
+        
+        <main>
+            <section id="summary" class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="content-item">
+                    <p>
+                        Dedicated and accomplished social science researcher with extensive experience in qualitative and quantitative analysis, 
+                        scientific writing, and policy formulation. Proficient in utilizing advanced tools such as QGIS, IBM-SPSS, NVIVO, Power BI, 
+                        Epi-Info, Dedoose, Zotero, Rayyan, Google Earth, Stella for modeling, Distilled Theory of Change, BioRender, and Kobo Toolbox 
+                        for data analysis and visualization. Skilled in stakeholder mapping, designing questionnaires, conducting focus group discussions, 
+                        and facilitating field-level meetings. Currently serving as a MELD Coordinator at Watershed Development Department of Karnataka, 
+                        demonstrating a strong commitment to excellence in research, fieldwork, and independent project management. Passionate about 
+                        conducting impactful studies that inform policy and contribute to academic advancement.
+                    </p>
+                </div>
+            </section>
+            
+            <section id="education" class="section">
+                <h2 class="section-title">Educational Qualification</h2>
+                <div class="education-item">
+                    <h3>Ph.D. in Agricultural Extension (2023)</h3>
+                    <p>University of Agricultural Sciences, GKVK, Bengaluru</p>
+                </div>
+                <div class="education-item">
+                    <h3>M.Sc. (Agri) in Agricultural Extension (2018)</h3>
+                    <p>University of Agricultural Sciences, GKVK, Bengaluru</p>
+                </div>
+                <div class="education-item">
+                    <h3>B.Sc. in Agriculture (2016)</h3>
+                    <p>College of Sericulture, UAS, GKVK, Bengaluru</p>
+                </div>
+                <div class="education-item">
+                    <h3>PUC in Science (2012)</h3>
+                    <p>Sports Residential PU College, Chandaragi</p>
+                </div>
+                <div class="education-item">
+                    <h3>SSLC (2010)</h3>
+                    <p>Sports Residential School, Chandaragi</p>
+                </div>
+            </section>
+            
+            <section id="experience" class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-item">
+                    <h3>Monitoring, Evaluation, Learning, and Documentation (MELD) Coordinator</h3>
+                    <p>Watershed Development Department of Karnataka under the KMERC-CEPMIZ scheme</p>
+                    <p>January 2025 - Present</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Research Associate</h3>
+                    <p>ICAR-NIVEDI, Bangalore, Karnataka</p>
+                    <p>August 2023 - January 2025</p>
+                    <p>Worked as a Social Science Scientist under the project 'IndoZooRisk: Using One Health Approaches to Understand and Co-develop Interventions for Zoonotic Diseases Affecting Forest Communities in India'.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Young Professional II</h3>
+                    <p>All India Coordinated Research Project on Women in Agriculture, UAS, GKVK, Bangalore</p>
+                    <p>May 2023 - August 2023</p>
+                    <ul class="content-list">
+                        <li>Development of a Repository Database to Analyze the Dynamics and Role of Women in Agriculture and Allied Sectors in Selected Agro-Ecological Regions – Developed a Google Form questionnaire for data collection.</li>
+                        <li>Promotion of Gender Equity through Technological Interventions and Entrepreneurial Development – Worked as a data entry specialist and data analyst.</li>
+                        <li>Shree Anna (Millet) Gram - A New Vista for Nutritional Security and Women Empowerment – Organized and conducted training programs for farmers on millets in Kothakote village and Nallagondayarahalli, Bagepalli Taluk.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Technical Assistant</h3>
+                    <p>Department of Agricultural Extension, UAS, GKVK, Bangalore</p>
+                    <p>November 2018 - June 2019</p>
+                    <p>Worked under the projects 'Study on Assessment of Mobile ICT Services in Agriculture' and 'Commodity-Based Associations' for 8 months. Engaged with over 220 farmers, assessed program effectiveness, and provided feedback for improvement.</p>
+                </div>
+            </section>
+            
+            <section id="skills" class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="content-item">
+                    <h3>Data Analysis & Visualization Tools</h3>
+                    <div class="skills-container">
+                        <div class="skill-item">QGIS</div>
+                        <div class="skill-item">IBM-SPSS</div>
+                        <div class="skill-item">NVIVO</div>
+                        <div class="skill-item">Power BI</div>
+                        <div class="skill-item">Epi-Info</div>
+                        <div class="skill-item">Dedoose</div>
+                        <div class="skill-item">Zotero</div>
+                        <div class="skill-item">Rayyan</div>
+                        <div class="skill-item">Google Earth</div>
+                        <div class="skill-item">Stella for modeling</div>
+                        <div class="skill-item">Distilled Theory of Change</div>
+                        <div class="skill-item">BioRender</div>
+                        <div class="skill-item">Kobo Toolbox</div>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h3>Research & Field Skills</h3>
+                    <div class="skills-container">
+                        <div class="skill-item">Stakeholder Mapping</div>
+                        <div class="skill-item">Questionnaire Design</div>
+                        <div class="skill-item">Focus Group Discussions</div>
+                        <div class="skill-item">Field-Level Meetings</div>
+                        <div class="skill-item">Scale Development</div>
+                        <div class="skill-item">Data Collection</div>
+                        <div class="skill-item">Statistical Analysis</div>
+                        <div class="skill-item">Research Report Writing</div>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h3>Computer & Office Skills</h3>
+                    <div class="skills-container">
+                        <div class="skill-item">MS Office Suite</div>
+                        <div class="skill-item">Google Forms</div>
+                        <div class="skill-item">Online Photoshop</div>
+                        <div class="skill-item">Editing Tools</div>
+                        <div class="skill-item">R Studio</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Social Media Management</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="publications" class="section">
+                <h2 class="section-title">Publications</h2>
+                
+                <div class="publication-item">
+                    <h4>1. Adoption Level of Bi-voltine Silkworm Rearing Practices among Farmers of Chitradurga District</h4>
+                    <p>Imrankhan Jiragal, M.V. Srinivasa Reddy, Mahinsharif, Mohankumar and Naik, R.G. (2019)</p>
+                    <p>Int.J.Curr.Microbiol.App.Sci. 8(2): 2481-2488</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://doi.org/10.20546/ijcmas.2019.802.288">https://doi.org/10.20546/ijcmas.2019.802.288</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>2. Economic Performance of Bi-voltine Silkworm Rearing Farmers in Chitradurga District</h4>
+                    <p>Jiragal, Imrankhan, Golya Naik, R., Srinivasa Reddy, M.V., Sharif, Mahin, Mohankumar, T.L. (2019)</p>
+                    <p>International Journal of Agriculture Sciences, 11 (3), 7841-7843</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://www.bioinfopublication.org/pages/article.php?id=BIA0004795">https://www.bioinfopublication.org/pages/article.php?id=BIA0004795</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>3. Constraints of bi-voltine silkworm rearing farmers of Chitradurga District</h4>
+                    <p>Imrankhan Jiragal, R. Golya Naik, M.V. Srinivasa Reddy, Mahin Sharif and T.L. Mohan Kumar (2019)</p>
+                    <p>Green Farming Vol. 10 (5): 652-654; September-October, 2019</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://www.greenfarming.in/?articles=constraints-of-bi-voltine-silkworm-rearing-farmers-of-chitradurga-district">https://www.greenfarming.in/?articles=constraints-of-bi-voltine-silkworm-rearing-farmers-of-chitradurga-district</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>4. Profile of Bi-voltine Silkworm Rearing Farmers of Chitradurga District, India</h4>
+                    <p>Imrankhan Jiragal, R. Golya Naik, M.V. Srinivasa Reddy, Mahinsharif and Mohankumar, T.L. (2019)</p>
+                    <p>Int. J. Curr. Microbiol. App. Sci. 8(09)</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://doi.org/10.20546/ijcmas.2019.809.xx">https://doi.org/10.20546/ijcmas.2019.809.xx</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>5. Development of a Scale to Measure Attitude of Farmers towards Pradhan Mantri Fasal Bima Yojana (PMFBY) Programme</h4>
+                    <p>Jiragal, Imrankhan, Ganesamoorthi, S. (2022)</p>
+                    <p>Mysore Journal of Agricultural Science., 56(4):192-200, ISSN 0047-8539</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://e-krishiuasb.karnataka.gov.in/MJAS/ViewArticles.aspx">https://e-krishiuasb.karnataka.gov.in/MJAS/ViewArticles.aspx</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>6. Constraints and Suggestions of Beneficiary and Non-beneficiary of Farmers towards Pradhan Mantri Fasal Bima Yojana in Kolar District of Karnataka</h4>
+                    <p>Jiragal, I., Ganesamoorthi, S., Mohankumar, T. L., & Narayanswamy, C. (2023)</p>
+                    <p>Asian Journal of Agricultural Extension, Economics & Sociology, 41(4), 55–61</p>
+                    <p class="publication-doi">doi: <a href="https://doi.org/10.9734/ajaees/2023/v41i41878">https://doi.org/10.9734/ajaees/2023/v41i41878</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>7. Women's Awareness Towards Their Entrepreneurial Behaviour in Tumkuru and Chikaballapura District of Karnataka, India</h4>
+                    <p>Yankanchi, Geetha, M., Geetha, K, Imrankhan Jiragal, and Latha Rani, R. (2024)</p>
+                    <p>Journal of Scientific Research and Reports 30 (4):162-69</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://doi.org/10.9734/jsrr/2024/v30i41901">https://doi.org/10.9734/jsrr/2024/v30i41901</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>8. Perception Level of Farm Women towards Entrepreneurial Development in Tumkuru and Chikkaballapura Districts of Karnataka, India</h4>
+                    <p>Yankanchi, G. M., Geetha, K., Ravindra, U., Jiragal, I., & Rani, R. L. (2023)</p>
+                    <p>Asian Journal of Agricultural Extension, Economics & Sociology, 41(11), 160–167</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://doi.org/10.9734/ajaees/2023/v41i112272">https://doi.org/10.9734/ajaees/2023/v41i112272</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>9. Adoption Level of Improved Practices Among Sericulture Farmers of Kolar and Chikkaballapur Districts in Karnataka</h4>
+                    <p>Srinivasa Reddy, M.V., Jiragal, Imrankhan, Papireddy, M., Venkatramana, P. (2019)</p>
+                    <p>International Journal of Agriculture Sciences, 11 (16), 8929-8931</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://www.bioinfopublication.org/pages/article.php?id=BIA0005154">https://www.bioinfopublication.org/pages/article.php?id=BIA0005154</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>10. Knowledge Level of Improved Practices Among Sericulture Farmers in Kolar and Chikkabalapur Districts of Karnataka</h4>
+                    <p>Srinivasa Reddy, M.V., Jiragal, Imrankhan, Naik, Ramakrisna, R., Golya Naik (2019)</p>
+                    <p>International Journal of Agriculture Sciences, 11 (16), 8926-8928</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://www.bioinfopublication.org/pages/article.php?id=BIA0005153">https://www.bioinfopublication.org/pages/article.php?id=BIA0005153</a></p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>11. Participation Level of Farm Women in Sericulture</h4>
+                    <p>Srinivasa Reddy, M.V., Jiragal, Imrankhan, Sivappa (2019)</p>
+                    <p>International Journal of Agriculture Sciences, ISSN: 0975-3710 & E-ISSN:0975-9107, Volume 11, Issue 16, pp.- 8940-8942</p>
+                    <p class="publication-doi">doi: <a target="_blank" href="https://www.bioinfopublication.org/pages/article.php?id=BIA0005157">https://www.bioinfopublication.org/pages/article.php?id=BIA0005157</a></p>
+                </div>
+            </section>
+            
+            <section id="book-chapters" class="section">
+                <h2 class="section-title">Book Chapters</h2>
+                
+                <div class="publication-item">
+                    <h4>1. An Overview of Agriculture Infrastructure Fund</h4>
+                    <p>Jiragal, I., Bepari, A., Sharif, M. (2023)</p>
+                    <p>Strategies for Sustainable Agriculture, ISBN: 978-93-5912-785-9</p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>2. Essential Oils – Beyond Aroma</h4>
+                    <p>Bepari, A., Jiragal, I., Khalandar, S. (2023)</p>
+                    <p>Strategies for Sustainable Agriculture, ISBN:978-93-5912-785-9</p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>3. Amaranth Millet: A Resilient Super Food Bridging Ancient Wisdom and Modern Lifestyle</h4>
+                    <p>Rani, L., Jiragal, I., Kumar, A., Kulkarni, U. N.</p>
+                    <p>Nutraceutical Potential of Millets. p209</p>
+                </div>
+            </section>
+            
+            <section id="research" class="section">
+                <h2 class="section-title">Research Abstracts</h2>
+                
+                <div class="publication-item">
+                    <h4>1. Livelihood security assessment of beneficiary and nonbeneficiary farmers during COVID-19 towards Pradhan Mantri Fasal Bima Yojana in Kolar District of Karnataka</h4>
+                    <p>Jiragal, I., Lakshminarayana Reddy, C. N., Jahir Basha, C. R., Ganesamoorthi, S. (2023)</p>
+                    <p>4th International Conference on Innovations to Transform Agriculture, Horticulture and Allied Sectors, MRU, Hyderabad, India</p>
+                </div>
+                
+                <div class="publication-item">
+                    <h4>2. Assessment of Livelihood Security of Beneficiary and Non-Beneficiary Farmers of Pradhan Mantri Fasal Bima Yojana in Kolar District of Karnataka</h4>
+                    <p>Jiragal, I., Ganesamoorthi, S., Mohankumar, T. L., Narayanaswamy, C. (2023)</p>
+                    <p>ISEE national seminar on Evolving extension Science towards secondary agriculture for sustainable development, Bangalore, India. p402-403</p>
+                </div>
+                
+                <!-- Continued from the last research abstract entry -->
+                <div class="publication-item">
+                    <h4>3. Economic Performance of Bi-voltine Silkworm Rearing Farmers in Chitradurga District</h4>
+                    <p>Jiragal, I., Naik, R. G., Reddy, M. V. S., Sharif, M., Mohankumar, T. L. (2019)</p>
+                    <p>11th National Extension Education Congress, UAS, Bengaluru, GKVK, India. p75-76</p>
+                </div>
+            </section>
+            
+            <section id="awards" class="section">
+                <h2 class="section-title">Awards & Honors</h2>
+                
+                <div class="content-item">
+                    <ul class="content-list">
+                        <li>Best Researcher Award-2022 from Sri Ramakrishna Sharma Research Foundation.</li>
+                        <li>Best Oral Presentation in Agricultural Extension during the 3rd International Conference on Innovative Research in Agricultural, Food, and Life Sciences at Mangalayatan University, Aligarh, UP, India.</li>
+                        <li>Junior Research Fellowship (JRF) from ICAR - Indian Council of Agricultural Research, 2018-19.</li>
+                        <li>UGC-NET qualification in Subject-Agricultural Extension, 2019.</li>
+                        <li>ARS qualification in Subject-Agricultural Extension from ASRB (Agricultural Scientists Recruitment Board), 2019.</li>
+                        <li>ICAR-SRF qualification in ICAR-NET, 2018-19.</li>
+                        <li>Gold Medal for securing First Rank in M.Sc. (Agri.) Agricultural Extension.</li>
+                        <li>Best Project Award during the National level project competition "INSPIRE" held at UAS, Dharwad (2015-16).</li>
+                        <li>University Merit Scholarship for securing top rank in B.Sc. (Agriculture) at UAS, Bengaluru.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="conferences" class="section">
+                <h2 class="section-title">Conferences & Training</h2>
+                
+                <div class="content-item">
+                    <h3>Conferences</h3>
+                    <ul class="content-list">
+                        <li>4th International Conference on Innovations to Transform Agriculture, Horticulture, and Allied Sectors, MRU, Hyderabad, India.</li>
+                        <li>ISEE National Seminar on Evolving Extension Science Towards Secondary Agriculture for Sustainable Development, Bangalore.</li>
+                        <li>11th National Extension Education Congress on Innovating Extension Practices for Sustainable Agricultural Development and Bio-security, UAS, Bengaluru, GKVK.</li>
+                        <li>3rd International Conference on Innovative Research in Agriculture, Food & Life Sciences at Mangalayatan University, Aligarh.</li>
+                    </ul>
+                </div>
+                
+                <div class="content-item">
+                    <h3>Training Programs</h3>
+                    <ul class="content-list">
+                        <li>Pre-PhD NAARM training on "Developing Winning Research Proposals" at NAARM, Hyderabad, India.</li>
+                        <li>Training on "Application of NVIVO in Agricultural Research and Extension" at UAS, Bangalore, India.</li>
+                        <li>Training on "Scientific Writing and Research Communication" at NAARM, Hyderabad, India.</li>
+                        <li>Training on "Theory of Change - Based Project Planning and Management" at ICRISAT, Hyderabad, India.</li>
+                        <li>CIEE Summer Training on "Public Health Informatics" at ICAR-NIVEDI, Bengaluru, India.</li>
+                        <li>Training on "Gender Mainstreaming in Agriculture" under AICRP-WIA, UAS, GKVK, Bengaluru.</li>
+                        <li>Training on "Data Analysis and Visualization" at ICAR-NIVEDI, Bengaluru, India.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="sports" class="section">
+                <h2 class="section-title">Sports & NCC</h2>
+                
+                <div class="content-item">
+                    <h3>Sports Achievements</h3>
+                    <ul class="content-list">
+                        <li>State-level Athletic champion in 100m, 200m, and 400m races during 2008-2010.</li>
+                        <li>Represented Karnataka state at National level in Athletics, 2009.</li>
+                        <li>Inter-College Sports champion in Basketball at UAS, Bangalore, 2012-13.</li>
+                        <li>Inter-University Sports participant in Basketball representing UAS, Bangalore, 2013-14.</li>
+                    </ul>
+                </div>
+                
+                <div class="content-item">
+                    <h3>NCC Experience</h3>
+                    <ul class="content-list">
+                        <li>'B' Certificate holder in National Cadet Corps (NCC).</li>
+                        <li>Participated in State-level NCC camps, 2013-14.</li>
+                        <li>Participated in Multiple NCC camps during University education.</li>
+                        <li>Volunteer for various social service activities through NCC.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <h3>References</h3>
+            <div class="references">
+                <div class="reference-item">
+                    <h4>Dr. Ganesamoorthi, S.</h4>
+                    <p>Professor</p>
+                    <p>Department of Agricultural Extension</p>
+                    <p>University of Agricultural Sciences, GKVK, Bangalore</p>
+                    <p>Ph: 9731876687</p>
+                </div>
+                <div class="reference-item">
+                    <h4>Dr. Narayanaswamy, C.</h4>
+                    <p>Professor</p>
+                    <p>Department of Agricultural Extension</p>
+                    <p>University of Agricultural Sciences, GKVK, Bangalore</p>
+                    <p>Ph: 9448308678</p>
+                </div>
+                <div class="reference-item">
+                    <h4>Dr. Mahin Sharif</h4>
+                    <p>Assistant Professor</p>
+                    <p>Department of Agricultural Economics</p>
+                    <p>University of Agricultural Sciences, GKVK, Bangalore</p>
+                    <p>Ph: 9449318177</p>
+                </div>
+                <div class="reference-item">
+                    <h4>Dr. Srinivasa Reddy, M.V.</h4>
+                    <p>Professor</p>
+                    <p>Department of Agricultural Extension</p>
+                    <p>University of Agricultural Sciences, GKVK, Bangalore</p>
+                    <p>Ph: 9731876687</p>
+                </div>
+                <div class="reference-item">
+                    <h4>Dr. K. Geetha</h4>
+                    <p>Retired Professor</p>
+                    <p>AICRP on Women in Agriculture</p>
+                    <p>University of Agricultural Sciences, GKVK, Bangalore</p>
+                    <p>Ph: 9449523085</p>
+                </div>
+                <div class="reference-item">
+                    <h4>Dr. Mohammad Mudassar Chanda</h4>
+                    <p>Senior Scientist</p>
+                    <p>ICAR-National Institute of Veterinary Epidemiology and Disease Informatics</p>
+                    <p>Ramagondanahalli, Yelahanka, Bangalore</p>
+                    <p>Ph: 9008755418</p>
+                </div>
+            </div><br>
+            <p>Dr. Imrankhan Jiragal</p>
+            <p>&copy; 2025 <a style="color: #e6f2ff;" href="https://navnathkamble.netlify.app/">nksoftpune</a> All rights reserved.</p>
+        </div>
     </footer>
+    
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sideNav = document.getElementById('sideNav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            sideNav.classList.toggle('active');
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for nav links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after clicking a link
+                if (window.innerWidth < 992) {
+                    sideNav.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
